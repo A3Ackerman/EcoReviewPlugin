@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './OpenSourceLeaf.png';
 import './App.css';
 
 function App() {
@@ -8,16 +8,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          EcoReview Online Shopping Assistant
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+         <div> Welcome to the EcoReview Online Shopping Assistant!
+          See below for the latest community assessments of any environmental concerns for:
+
+         </div>
       </header>
     </div>
   );
