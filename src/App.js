@@ -4,15 +4,27 @@ import Header from './components/Header';
 import Reviews from './components/Reviews';
 import SubmissionForm from './components/SubmissionForm';
 
+let server = "http://127.0.0.1:4433";
+/*global chrome*/
+
 class EcoReviewApp extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            reviews: [{id: 1, url: "xyz.com", brand: "ABC", prod: "CDE", text: "!!!!!"},
-                {id: 2, url: "123.com", brand: "4adf45", prod: "asdf", text: "op qrst uvwz yzhigh lmnop qrst uvwz yzdf"}],
-            submission: ""
-        }
+    state = {reviews: [], url: ""};
+
+    componentDidMount() {
+
+        chrome.runtime.sendMessage({data:"Handshake"},{});
+
+        chrome.runtime.onMessage.addListener(message => {
+            this.setState({url: message.data});
+            console.log("Url is now: "+ this.state.url);
+        });
+
+        fetch(server + "/reviews", {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(json => this.setState({reviews: json}));
     }
 
     render(){
@@ -24,10 +36,11 @@ class EcoReviewApp extends React.Component {
                     <Reviews revdata={this.state.reviews}/>
                     </tbody>
                 </table>
-                <SubmissionForm/>
+                <SubmissionForm server={server} url={this.state.url}/>
             </div>
         );
     }
 }
+
 
 export default EcoReviewApp

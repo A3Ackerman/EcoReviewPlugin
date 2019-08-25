@@ -20,14 +20,14 @@
 }
 
 .App-ReviewBox {
-  background-color: lightgreen;
+  background-color: #abeeaf;
   min-height: 5vh;
   border-collapse: collapse;
   border: solid 2px #282c34;
 }
 
 .App-SubmissionForm {
-  background-color: skyblue;
+  background-color: rgba(8, 58, 17, 0.8);
   min-height: 20vh;
   display: flex;
   flex-direction: column;

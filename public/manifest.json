@@ -1,9 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "React Extension",
+  "name": "EcoReview Extension",
   "manifest_version": 2,
   "browser_action": {
-    "default_popup": "index.html"
-  },
-  "version": "1.0"
+    "default_popup": "index.html"},
+  "version": "1.0",
+  "permissions": ["tabs", "activeTab"],
+  "background": {
+    "scripts":["background.js"]}
 }
